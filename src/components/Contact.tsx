@@ -1,0 +1,289 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Clock,
+  MessageCircle,
+} from "lucide-react";
+import InquireButton from "./InquireButton";
+import { siteConfig, whatsappUrl } from "@/lib/site-config";
+
+const PHONE_DISPLAY = siteConfig.contact.phoneDisplay;
+
+export default function Contact() {
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+  };
+
+  return (
+    <section id="contact" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-leaf-100 text-leaf-800 text-xs font-semibold uppercase tracking-[0.16em] mb-5">
+              <Mail className="w-3.5 h-3.5" />
+              Get in Touch
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-[1.1]">
+              Ready to source
+              <br />
+              <span className="gradient-text">premium grains?</span>
+            </h2>
+            <p className="mt-6 text-lg text-stone-600 leading-relaxed">
+              Whether you need bulk orders or custom bagged packaging, our team
+              is ready to deliver. Tell us your requirement and we'll get back
+              within one business day — or chat with us instantly on WhatsApp.
+            </p>
+
+            <div className="mt-10 space-y-4">
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-4 rounded-2xl bg-green-50 border border-green-200 hover:shadow-md transition-all group"
+              >
+                <div className="w-11 h-11 rounded-xl bg-green-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                  <MessageCircle className="w-5 h-5 text-white" fill="white" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-xs uppercase tracking-wider text-green-800 font-semibold">
+                    WhatsApp Direct
+                  </div>
+                  <div className="text-stone-900 font-medium mt-0.5">
+                    {PHONE_DISPLAY} · Chat with our team now
+                  </div>
+                  <div className="text-sm text-green-700 mt-1 group-hover:underline">
+                    Start a conversation →
+                  </div>
+                </div>
+              </a>
+
+              {[
+                {
+                  icon: MapPin,
+                  title: "Our Office",
+                  text: siteConfig.contact.address,
+                },
+                {
+                  icon: Mail,
+                  title: "Email Us",
+                  text: siteConfig.contact.email,
+                },
+                {
+                  icon: Phone,
+                  title: "Call Us",
+                  text: PHONE_DISPLAY,
+                },
+                {
+                  icon: Clock,
+                  title: "Business Hours",
+                  text: siteConfig.contact.businessHours,
+                },
+              ].map((c) => (
+                <div
+                  key={c.title}
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-stone-200 hover:border-leaf-300 hover:shadow-md transition-all"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-leaf-100 flex items-center justify-center flex-shrink-0">
+                    <c.icon className="w-5 h-5 text-leaf-700" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-stone-500 font-semibold">
+                      {c.title}
+                    </div>
+                    <div className="text-stone-900 font-medium mt-0.5">
+                      {c.text}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right — form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-gradient-to-br from-leaf-200/40 to-brand-200/40 rounded-3xl blur-2xl -z-10" />
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-stone-200 space-y-5"
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                    Full Name
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="John Smith"
+                    className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your company"
+                    className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                    Email
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    placeholder="you@company.com"
+                    className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+61 ..."
+                    className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                  Product of Interest
+                </label>
+                <select className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all bg-white">
+                  <option>Lentils</option>
+                  <option>Kabuli Chickpeas</option>
+                  <option>Desi Chickpeas</option>
+                  <option>Mung Beans</option>
+                  <option>Yellow Split Peas</option>
+                  <option>Kaspa Peas</option>
+                  <option>Wheat Grain</option>
+                  <option>Red Sorghum</option>
+                  <option>Faba Beans</option>
+                  <option>Mixed / Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
+                  Message
+                </label>
+                <textarea
+                  required
+                  rows={5}
+                  placeholder="Tell us about your requirements — quantity, packaging, destination..."
+                  className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={sent}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-leaf-700 hover:bg-leaf-800 text-white font-semibold shadow-lg shadow-leaf-700/20 hover:shadow-xl hover:shadow-leaf-700/30 transition-all group disabled:bg-leaf-600"
+              >
+                {sent ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    Thank you! We'll be in touch.
+                  </>
+                ) : (
+                  <>
+                    Send Inquiry
+                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </button>
+
+              <p className="text-xs text-center text-stone-500">
+                Prefer a live conversation?{" "}
+                <a
+                  href={whatsappUrl(
+                    "Hi Grain Hub Australia, I'd like to inquire about your products."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-700 font-semibold hover:underline"
+                >
+                  Message us on WhatsApp →
+                </a>
+              </p>
+            </form>
+
+            {/* Floating inquire button */}
+            <div className="mt-6 flex justify-center">
+              <InquireButton
+                variant="floating"
+                label="Quick Inquire"
+                formMode="scroll"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Final CTA strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 rounded-3xl bg-gradient-to-br from-brand-600 via-leaf-700 to-leaf-800 p-10 md:p-14 text-white overflow-hidden relative"
+        >
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-brand-400/30 rounded-full blur-3xl" />
+          <div className="relative grid md:grid-cols-3 gap-6 items-center">
+            <div className="md:col-span-2">
+              <h3 className="font-display text-3xl md:text-4xl font-bold">
+                Partner with Australia's trusted grain exporter.
+              </h3>
+              <p className="mt-3 text-stone-100 max-w-2xl">
+                Bulk orders, custom packaging, reliable global logistics —
+                everything your business needs under one roof.
+              </p>
+            </div>
+            <div className="md:text-right">
+              <a
+                href={whatsappUrl(
+                  "Hi Grain Hub Australia, I'd like to request a quote."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-leaf-800 font-semibold hover:bg-brand-100 transition-all group"
+              >
+                Request a Quote
+                <MessageCircle className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-brand-50: #f6f5ed;
+  --color-brand-100: #ece8d3;
+  --color-brand-200: #d9d1a8;
+  --color-brand-300: #c1b474;
+  --color-brand-400: #b19a55;
+  --color-brand-500: #a08340;
+  --color-brand-600: #886a36;
+  --color-brand-700: #6b512f;
+  --color-brand-800: #5a442d;
+  --color-brand-900: #4d3b2a;
+
+  --color-leaf-50: #f3f7f0;
+  --color-leaf-100: #e3eddb;
+  --color-leaf-200: #c7dbb8;
+  --color-leaf-300: #a1c189;
+  --color-leaf-400: #7aa361;
+  --color-leaf-500: #5b8645;
+  --color-leaf-600: #476b36;
+  --color-leaf-700: #38542c;
+  --color-leaf-800: #2f4427;
+  --color-leaf-900: #283a22;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: #fbfaf6;
+    color: #1a1a1a;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .bg-grain {
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(160, 131, 64, 0.08) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(91, 134, 69, 0.08) 0, transparent 40%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade up on load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #476b36 0%, #a08340 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
