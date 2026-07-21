@@ -1,5 +1,20 @@
 # Site
+NEXT_PUBLIC_SITE_NAME="Grain Hub Australia"
 NEXT_PUBLIC_SITE_URL=https://grainhubaustralia.com.au
+
+# SEO / meta tags (all optional — sensible defaults derived from the values above)
+NEXT_PUBLIC_SEO_TITLE="Grain Hub Australia | Premium Australian Pulses, Lentils & Grains"
+NEXT_PUBLIC_SEO_DESCRIPTION="Grain Hub Australia — your trusted partner for high-quality, non-GMO pulses, lentils and grains. Farm-direct exports to the world since 2016."
+NEXT_PUBLIC_SEO_OG_TITLE="Grain Hub Australia"
+NEXT_PUBLIC_SEO_OG_DESCRIPTION="Premium Australian pulses, lentils & grains for global palates."
+NEXT_PUBLIC_SEO_OG_IMAGE=/images/lentils.webp
+NEXT_PUBLIC_TWITTER_HANDLE=
+# Comma-separated
+NEXT_PUBLIC_SEO_KEYWORDS="Australian pulses,lentils export,chickpeas,mung beans,yellow split peas,grain hub australia,grain export Australia"
+# Search engine verification (optional)
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+# Set to "true" only when ready to go live — otherwise robots.txt blocks all crawlers
+NEXT_PUBLIC_ALLOW_INDEXING=false
 
 # Contact
 NEXT_PUBLIC_CONTACT_EMAIL=info@grainhubaustralia.com.au
@@ -16,9 +31,6 @@ NEXT_PUBLIC_LINKEDIN_URL=
 NEXT_PUBLIC_TWITTER_URL=
 NEXT_PUBLIC_YOUTUBE_URL=
 NEXT_PUBLIC_TIKTOK_URL=
-
-# Search engine verification (optional)
-NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
 
 # Database
 DATABASE_URL=

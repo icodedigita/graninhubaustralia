@@ -15,7 +15,7 @@ import InquireButton from "@/components/InquireButton";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { whatsappUrl } from "@/lib/site-config";
+import { siteConfig, whatsappUrl } from "@/lib/site-config";
 
 export async function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -36,14 +36,14 @@ export async function generateMetadata({
       canonical: `/products/${product.slug}`,
     },
     openGraph: {
-      title: `${product.name} | Grain Hub Australia`,
+      title: `${product.name} | ${siteConfig.name}`,
       description: product.shortDesc,
       type: "website",
       images: [{ url: product.image, alt: product.name }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} | Grain Hub Australia`,
+      title: `${product.name} | ${siteConfig.name}`,
       description: product.shortDesc,
       images: [product.image],
     },
