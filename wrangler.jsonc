@@ -9,7 +9,13 @@
     "binding": "ASSETS"
   },
   "observability": {
-    "enabled": true
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false
+    }
   }
   // Postgres via `pg` needs a raw TCP connection, which Workers only allow
   // through Hyperdrive. Once you provision one (wrangler hyperdrive create),
