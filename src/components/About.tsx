@@ -22,7 +22,7 @@ export default function About() {
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/about-farm.jpg"
+                src="/images/about-farm.webp"
                 alt="Australian farm"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

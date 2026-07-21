@@ -103,7 +103,7 @@ export default function Nutrition() {
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/quality.jpg"
+                src="/images/quality.webp"
                 alt="Nutritious pulses"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

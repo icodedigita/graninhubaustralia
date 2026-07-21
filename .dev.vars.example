@@ -1,0 +1,24 @@
+# Site
+NEXT_PUBLIC_SITE_URL=https://grainhubaustralia.com.au
+
+# Contact
+NEXT_PUBLIC_CONTACT_EMAIL=info@grainhubaustralia.com.au
+NEXT_PUBLIC_PHONE_DISPLAY="+61 461 52 7765"
+# Digits only, with country code, no + or spaces (used for wa.me / tel: links)
+NEXT_PUBLIC_WHATSAPP_NUMBER=61461527765
+NEXT_PUBLIC_ADDRESS="Melbourne, Victoria, Australia"
+NEXT_PUBLIC_BUSINESS_HOURS="Mon – Fri, 9am – 6pm AEST"
+
+# Social media (leave blank to hide the icon/link)
+NEXT_PUBLIC_FACEBOOK_URL=
+NEXT_PUBLIC_INSTAGRAM_URL=
+NEXT_PUBLIC_LINKEDIN_URL=
+NEXT_PUBLIC_TWITTER_URL=
+NEXT_PUBLIC_YOUTUBE_URL=
+NEXT_PUBLIC_TIKTOK_URL=
+
+# Search engine verification (optional)
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+
+# Database
+DATABASE_URL=

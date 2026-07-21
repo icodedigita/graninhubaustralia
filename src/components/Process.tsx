@@ -102,10 +102,10 @@ export default function Process() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            "/images/lentils.jpg",
-            "/images/chickpeas.jpg",
-            "/images/mungbeans.jpg",
-            "/images/wheat.jpg",
+            "/images/lentils.webp",
+            "/images/chickpeas.webp",
+            "/images/mungbeans.webp",
+            "/images/wheat.webp",
           ].map((src, i) => (
             <div
               key={i}

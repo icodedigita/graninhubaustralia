@@ -20,7 +20,7 @@ export const PRODUCTS: Product[] = [
       "Nutritious legumes rich in protein and fibre — a versatile staple for soups, curries and salads.",
     fullDescription:
       "Our premium Australian-grown lentils are carefully cleaned, graded and packed to meet the strictest international standards. Available in red, green and brown varieties, our lentils are celebrated for their consistent size, clean colour and excellent cooking quality. A powerhouse of plant-based protein, they cook quickly and absorb flavours beautifully — making them a kitchen staple across the Middle East, South Asia and Europe.",
-    image: "/images/lentils.jpg",
+    image: "/images/lentils.webp",
     tags: ["High Protein", "High Fibre", "Non-GMO"],
     accent: "from-red-100 to-orange-50",
     nutrition: [
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
       "Creamy, nutty chickpeas with a smooth texture — perfect for hummus, curries and roasted snacks.",
     fullDescription:
       "Kabuli chickpeas — the larger, cream-coloured variety — are the gold standard for hummus, Mediterranean dishes and premium culinary markets. Our Australian Kabuli chickpeas are known for their uniform size, light colour and clean taste. They hold their shape beautifully during cooking and deliver a buttery texture that's ideal for both traditional and modern recipes.",
-    image: "/images/chickpeas.jpg",
+    image: "/images/chickpeas.webp",
     tags: ["Vegan", "Gluten-Free", "Premium"],
     accent: "from-amber-100 to-yellow-50",
     nutrition: [
@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
       "Small, dark chickpeas with a robust nutty flavour — a favourite in traditional curries and stews.",
     fullDescription:
       "Desi chickpeas are the smaller, darker cousin of the Kabuli variety — prized across South Asia, the Middle East and East Africa for their deep, earthy flavour and firm texture. Our Australian-grown Desi chickpeas are non-GMO and naturally high in protein and fibre. Their robust structure means they hold up beautifully in long-cooked dishes like chana masala, dhal and hearty stews.",
-    image: "/images/chickpeas.jpg",
+    image: "/images/chickpeas.webp",
     tags: ["High Protein", "Traditional", "Non-GMO"],
     accent: "from-stone-200 to-amber-50",
     filter: "sepia(0.3) saturate(1.1)",
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
       "Small green legumes with a sweet, nutty flavour — ideal for soups, sprouts and Asian cuisine.",
     fullDescription:
       "Mung beans are one of the most versatile pulses in the world. Small, bright green and naturally sweet, they sprout easily, cook quickly and feature prominently in Asian, Indian and Middle Eastern cuisines. Our Australian mung beans are grown in the ideal climate of northern NSW and southern Queensland, delivering excellent germination rates and clean, uniform grain for premium food and sprout markets.",
-    image: "/images/mungbeans.jpg",
+    image: "/images/mungbeans.webp",
     tags: ["Antioxidant Rich", "Versatile", "Sproutable"],
     accent: "from-lime-100 to-green-50",
     nutrition: [
@@ -118,7 +118,7 @@ export const PRODUCTS: Product[] = [
       "Mild, soft-textured legumes — a classic ingredient for hearty soups, dhal and stews.",
     fullDescription:
       "Yellow split peas are the heart and soul of classic comfort food — from Indian dhal to Western split pea soup. Grown, cleaned and split in Australia, our yellow split peas cook down to a creamy, velvety texture in under 30 minutes. Their mild, slightly sweet flavour pairs beautifully with spices, herbs and aromatics, making them a kitchen workhorse for chefs and home cooks alike.",
-    image: "/images/splitpeas.jpg",
+    image: "/images/splitpeas.webp",
     tags: ["High Fibre", "Mild Flavour", "Quick Cooking"],
     accent: "from-yellow-100 to-amber-50",
     nutrition: [
@@ -142,7 +142,7 @@ export const PRODUCTS: Product[] = [
       "Sweet, smooth-textured field peas — widely used in soups, salads and casseroles.",
     fullDescription:
       "Kaspa peas (also called dun field peas) are a versatile Australian specialty with a distinctive creamy texture and mildly sweet flavour. Popular across the Middle East, Mediterranean and parts of Asia, they are prized for their ability to hold shape in salads while also breaking down beautifully in slow-cooked dishes. Our Kaspa peas are carefully graded for uniform size and clean colour.",
-    image: "/images/splitpeas.jpg",
+    image: "/images/splitpeas.webp",
     tags: ["Sweet", "Versatile", "Non-GMO"],
     accent: "from-teal-100 to-emerald-50",
     filter: "hue-rotate(140deg) saturate(1.2)",
@@ -167,7 +167,7 @@ export const PRODUCTS: Product[] = [
       "Nutritious cereal grain with a mild nutty flavour — the foundation for breads and cereals.",
     fullDescription:
       "Australian wheat is globally recognised for its premium quality, high protein content and outstanding baking performance. Our wheat grain is selected for consistent test weight, low moisture and excellent milling quality. From bread flour to breakfast cereals, pasta and wholegrain products — Australian wheat delivers the consistent performance that millers and food manufacturers rely on.",
-    image: "/images/wheat.jpg",
+    image: "/images/wheat.webp",
     tags: ["High Fibre", "Whole Grain", "Premium"],
     accent: "from-amber-100 to-orange-50",
     nutrition: [
@@ -191,7 +191,7 @@ export const PRODUCTS: Product[] = [
       "Gluten-free cereal rich in antioxidants, fibre and protein — ideal for porridge and baked goods.",
     fullDescription:
       "Red sorghum is an ancient grain making a modern comeback. Naturally gluten-free and packed with antioxidants, fibre and plant protein, it's a favourite among health-conscious consumers and specialty food manufacturers. Australian red sorghum is grown in northern regions where the climate produces grain with excellent colour, clean flavour and outstanding nutritional profile.",
-    image: "/images/sorghum.jpg",
+    image: "/images/sorghum.webp",
     tags: ["Gluten-Free", "Antioxidant", "Ancient Grain"],
     accent: "from-rose-100 to-red-50",
     nutrition: [
@@ -215,7 +215,7 @@ export const PRODUCTS: Product[] = [
       "Protein-rich legumes with a buttery texture — great in stews, soups and Mediterranean dishes.",
     fullDescription:
       "Faba beans (also known as broad beans or field beans) are one of the highest-protein pulses available — and one of the most versatile. Our Australian-grown faba beans feature a creamy, buttery texture and nutty flavour that shines in both traditional Mediterranean cooking and modern plant-based recipes. They're also a leading ingredient in the booming plant-protein isolate market.",
-    image: "/images/fababeans.jpg",
+    image: "/images/fababeans.webp",
     tags: ["High Protein", "Buttery", "Non-GMO"],
     accent: "from-stone-100 to-amber-50",
     nutrition: [

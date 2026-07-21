@@ -6,12 +6,12 @@ import { Menu, X, Wheat } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#products", label: "Products" },
-  { href: "#nutrition", label: "Nutrition" },
-  { href: "#exports", label: "Global Reach" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#products", label: "Products" },
+  { href: "/#nutrition", label: "Nutrition" },
+  { href: "/#exports", label: "Global Reach" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {

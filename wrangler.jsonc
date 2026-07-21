@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "grain-hub-australia",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Postgres via `pg` needs a raw TCP connection, which Workers only allow
+  // through Hyperdrive. Once you provision one (wrangler hyperdrive create),
+  // uncomment and fill this in, then point DATABASE_URL at the Hyperdrive
+  // connection string in your environment/secrets:
+  //
+  // "hyperdrive": [
+  //   {
+  //     "binding": "HYPERDRIVE",
+  //     "id": "<your-hyperdrive-id>"
+  //   }
+  // ]
+}

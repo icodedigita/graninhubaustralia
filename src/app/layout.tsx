@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_AU",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/lentils.webp",
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description: "Premium Australian pulses, lentils & grains for global palates.",
-    images: ["/og-image.jpg"],
+    images: ["/images/lentils.webp"],
   },
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }

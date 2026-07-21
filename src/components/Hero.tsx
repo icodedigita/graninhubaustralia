@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero-pulses.jpg"
+          src="https://images.pexels.com/photos/6086066/pexels-photo-6086066.jpeg"
           alt="Australian pulses and lentils"
           fill
           priority
@@ -121,7 +121,7 @@ export default function Hero() {
               <div className="absolute -inset-6 bg-gradient-to-br from-brand-200/50 to-leaf-200/50 rounded-full blur-3xl" />
               <div className="relative aspect-square rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl">
                 <Image
-                  src="/images/quality.jpg"
+                  src="/images/quality.webp"
                   alt="Premium quality pulses"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
