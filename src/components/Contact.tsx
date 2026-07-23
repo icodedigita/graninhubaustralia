@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -323,6 +324,17 @@ export default function Contact() {
             </div>
           </div>
         </motion.div>
+
+        <div className="mt-10 flex items-center justify-center gap-4">
+          <span className="text-base text-stone-500">Affiliated with</span>
+          <Image
+            src="/images/gta.webp"
+            alt="GTA affiliation logo"
+            width={96}
+            height={96}
+            className="h-20 w-auto object-contain"
+          />
+        </div>
       </div>
     </section>
   );

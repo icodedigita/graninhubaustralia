@@ -158,11 +158,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-stone-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-stone-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-stone-500">
             © {new Date().getFullYear()} Grain Hub Australia · grainhubaustralia.com.au · All rights
             reserved.
           </p>
+
           <div className="flex items-center gap-6 text-xs text-stone-500">
             <a href="#" className="hover:text-brand-300 transition-colors">
               Privacy Policy
