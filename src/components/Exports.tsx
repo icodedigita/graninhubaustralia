@@ -5,7 +5,6 @@ import { Globe, MapPin, Plane, Container } from "lucide-react";
 
 const markets = [
   { country: "Australia", flag: "🇦🇺", role: "Home" },
-  { country: "China", flag: "🇨🇳", role: "Export" },
   { country: "India", flag: "🇮🇳", role: "Export" },
   { country: "Singapore", flag: "🇸🇬", role: "Export" },
   { country: "Malaysia", flag: "🇲🇾", role: "Export" },
@@ -13,7 +12,8 @@ const markets = [
   { country: "Sri Lanka", flag: "🇱🇰", role: "Export" },
   { country: "Bangladesh", flag: "🇧🇩", role: "Export" },
   { country: "Pakistan", flag: "🇵🇰", role: "Export" },
-  { country: "United Kingdom", flag: "🇬🇧", role: "Export" },
+  { country: "South Korea", flag: "🇰🇷", role: "Export" },
+  { country: "Cameroon", flag: "🇨🇲", role: "Export" },
 ];
 
 export default function Exports() {
@@ -65,7 +65,7 @@ export default function Exports() {
               transition={{ delay: 0.2 }}
               className="mt-6 text-lg text-stone-200 leading-relaxed max-w-xl"
             >
-              Arya Pulses exports containerised and bulk grain across key
+              Grain Hub Australia exports containerised and bulk grain across key
               international markets. Our logistics network ensures on-time,
               reliable delivery — anywhere in the world.
             </motion.p>

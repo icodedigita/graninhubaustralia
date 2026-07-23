@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
       "Creamy, nutty chickpeas with a smooth texture — perfect for hummus, curries and roasted snacks.",
     fullDescription:
       "Kabuli chickpeas — the larger, cream-coloured variety — are the gold standard for hummus, Mediterranean dishes and premium culinary markets. Our Australian Kabuli chickpeas are known for their uniform size, light colour and clean taste. They hold their shape beautifully during cooking and deliver a buttery texture that's ideal for both traditional and modern recipes.",
-    image: "/images/chickpeas.webp",
+    image: "https://images.pexels.com/photos/28110905/pexels-photo-28110905.jpeg",
     tags: ["Vegan", "Gluten-Free", "Premium"],
     accent: "from-amber-100 to-yellow-50",
     nutrition: [
@@ -69,10 +69,9 @@ export const PRODUCTS: Product[] = [
       "Small, dark chickpeas with a robust nutty flavour — a favourite in traditional curries and stews.",
     fullDescription:
       "Desi chickpeas are the smaller, darker cousin of the Kabuli variety — prized across South Asia, the Middle East and East Africa for their deep, earthy flavour and firm texture. Our Australian-grown Desi chickpeas are non-GMO and naturally high in protein and fibre. Their robust structure means they hold up beautifully in long-cooked dishes like chana masala, dhal and hearty stews.",
-    image: "/images/chickpeas.webp",
+    image: "https://images.pexels.com/photos/7771994/pexels-photo-7771994.jpeg",
     tags: ["High Protein", "Traditional", "Non-GMO"],
     accent: "from-stone-200 to-amber-50",
-    filter: "sepia(0.3) saturate(1.1)",
     nutrition: [
       { label: "Protein", value: "~22g / 100g" },
       { label: "Fibre", value: "~18g / 100g" },
@@ -231,6 +230,30 @@ export const PRODUCTS: Product[] = [
       "Soups and hearty stews",
     ],
     origins: "Grown across southern Australian grain regions — a staple rotation crop.",
+  },
+  {
+    slug: "barley",
+    name: "Barley",
+    shortDesc:
+      "Versatile cereal grain with a mild, nutty flavour — ideal for malting, feed and wholegrain foods.",
+    fullDescription:
+      "Australian barley is prized worldwide for its quality, whether destined for malting, animal feed or human consumption. Our barley is carefully selected for consistent grain size, low moisture and excellent plumpness. From brewing and distilling to soups, salads and wholegrain baking, Australian barley delivers the reliable performance that food manufacturers and maltsters depend on.",
+    image: "https://images.pexels.com/photos/1296262/pexels-photo-1296262.jpeg",
+    tags: ["Whole Grain", "Versatile", "Non-GMO"],
+    accent: "from-amber-100 to-yellow-50",
+    nutrition: [
+      { label: "Protein", value: "~10g / 100g" },
+      { label: "Fibre", value: "~17g / 100g" },
+      { label: "Selenium", value: "Good source" },
+      { label: "Gluten", value: "Contains gluten" },
+    ],
+    uses: [
+      "Malting and brewing",
+      "Soups and stews",
+      "Wholegrain salads and bowls",
+      "Livestock feed",
+    ],
+    origins: "Grown across South Australia, Victoria and Western Australia.",
   },
 ];
 

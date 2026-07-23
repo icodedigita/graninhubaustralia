@@ -43,6 +43,7 @@ const footerLinks = {
     { label: "Desi Chickpeas", href: "/products/desi-chickpeas" },
     { label: "Mung Beans", href: "/products/mung-beans" },
     { label: "Yellow Split Peas", href: "/products/yellow-split-peas" },
+    { label: "Barley", href: "/products/barley" },
     { label: "Faba Beans", href: "/products/faba-beans" },
   ],
   Resources: [
@@ -77,8 +78,7 @@ export default function Footer() {
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-stone-400 max-w-sm">
               Your trusted partner for premium Australian pulses, lentils and
-              grains — sourced directly from farms and exported worldwide since
-              2016.
+              grains — sourced directly from farms and exported worldwide.
             </p>
 
             <div className="mt-6 space-y-2.5 text-sm">

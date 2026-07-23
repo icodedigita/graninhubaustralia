@@ -75,11 +75,6 @@ export default function Contact() {
 
               {[
                 {
-                  icon: MapPin,
-                  title: "Our Office",
-                  text: siteConfig.contact.address,
-                },
-                {
                   icon: Mail,
                   title: "Email Us",
                   text: siteConfig.contact.email,
@@ -112,6 +107,50 @@ export default function Contact() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 p-5 rounded-2xl bg-leaf-50 border border-leaf-200">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-leaf-100 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-leaf-700" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-stone-500 font-semibold">
+                    Head Office
+                  </div>
+                  <div className="text-stone-900 font-medium mt-0.5">
+                    Melbourne, Australia
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 text-xs uppercase tracking-wider text-stone-500 font-semibold">
+                International Offices
+              </div>
+              <ul className="mt-3 space-y-3">
+                {[
+                  {
+                    city: "Incheon, South Korea",
+                    phone: "+82 10 9443 8241",
+                  },
+                  {
+                    city: "Toronto, Canada",
+                    phone: "+1 647 839 7376",
+                  },
+                  {
+                    city: "Manchester, UK",
+                    phone: "+44 7852 926601",
+                  },
+                ].map((o) => (
+                  <li key={o.city} className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-leaf-700 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <div className="text-stone-900 font-medium">{o.city}</div>
+                      <div className="text-sm text-stone-600">{o.phone}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
 
@@ -188,6 +227,7 @@ export default function Contact() {
                   <option>Yellow Split Peas</option>
                   <option>Kaspa Peas</option>
                   <option>Wheat Grain</option>
+                  <option>Barley</option>
                   <option>Red Sorghum</option>
                   <option>Faba Beans</option>
                   <option>Mixed / Other</option>

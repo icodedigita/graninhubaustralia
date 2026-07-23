@@ -32,7 +32,7 @@ export default function About() {
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-4 md:-right-8 bg-leaf-700 text-white rounded-2xl p-5 md:p-6 shadow-2xl max-w-[220px]">
               <div className="font-display text-4xl md:text-5xl font-bold text-brand-300">
-                2016
+                100%
               </div>
               <div className="text-sm md:text-base mt-1 leading-snug">
                 Proudly serving global markets from Australian farms.
@@ -59,7 +59,7 @@ export default function About() {
               <span className="gradient-text">trusted worldwide.</span>
             </h2>
             <p className="mt-6 text-lg text-stone-600 leading-relaxed">
-              Founded in 2016, Grain Hub Australia is dedicated to exporting
+              Grain Hub Australia is dedicated to exporting
               premium pulses and lentils worldwide. As one of the largest
               regional Australian grain traders, we partner with a strong network
               of farmers who share our commitment to quality and sustainability.

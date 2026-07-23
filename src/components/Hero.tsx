@@ -36,7 +36,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-leaf-200 text-leaf-800 text-xs font-semibold uppercase tracking-[0.16em] mb-6 shadow-sm"
             >
               <Sprout className="w-3.5 h-3.5" />
-              Premium Australian Grains · Since 2016
+              Premium Australian Grains
             </motion.div>
 
             <motion.h1
