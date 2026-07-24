@@ -170,6 +170,8 @@ function InquiryModal({
   onClose: () => void;
 }) {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -178,13 +180,37 @@ function InquiryModal({
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      onClose();
-    }, 2200);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          product: data.get("product"),
+          message: data.get("message"),
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSent(true);
+      setTimeout(() => {
+        setSent(false);
+        onClose();
+      }, 2200);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -234,6 +260,7 @@ function InquiryModal({
               </label>
               <input
                 required
+                name="name"
                 type="text"
                 className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm"
               />
@@ -244,6 +271,7 @@ function InquiryModal({
               </label>
               <input
                 type="text"
+                name="company"
                 className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm"
               />
             </div>
@@ -256,6 +284,7 @@ function InquiryModal({
               </label>
               <input
                 required
+                name="email"
                 type="email"
                 className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm"
               />
@@ -266,6 +295,7 @@ function InquiryModal({
               </label>
               <input
                 type="tel"
+                name="phone"
                 className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm"
               />
             </div>
@@ -277,7 +307,8 @@ function InquiryModal({
             </label>
             <input
               type="text"
-              value={productName ?? ""}
+              name="product"
+              defaultValue={productName ?? ""}
               readOnly={!!productName}
               placeholder="e.g. Kabuli Chickpeas"
               className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm bg-stone-50"
@@ -290,6 +321,7 @@ function InquiryModal({
             </label>
             <textarea
               required
+              name="message"
               rows={4}
               placeholder="Estimated quantity, packaging preference (bulk / bagged), destination..."
               className="mt-1.5 w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all text-sm resize-none"
@@ -298,7 +330,7 @@ function InquiryModal({
 
           <button
             type="submit"
-            disabled={sent}
+            disabled={sent || submitting}
             className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-leaf-700 hover:bg-leaf-800 text-white font-semibold shadow-lg shadow-leaf-700/20 transition-all disabled:bg-leaf-600"
           >
             {sent ? (
@@ -309,10 +341,15 @@ function InquiryModal({
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                Submit Inquiry
+                {submitting ? "Sending..." : "Submit Inquiry"}
               </>
             )}
           </button>
+          {error && (
+            <p className="text-xs text-center text-red-600">
+              Something went wrong sending your message. Please try again or use WhatsApp below.
+            </p>
+          )}
           <p className="text-xs text-center text-stone-500">
             Or prefer a live chat?{" "}
             <a

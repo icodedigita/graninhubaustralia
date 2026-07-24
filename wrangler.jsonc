@@ -16,6 +16,16 @@
     "traces": {
       "enabled": false
     }
+  },
+  // Plaintext, non-sensitive config. SMTP_USER and SMTP_PASSWORD are
+  // credentials and must NOT go here — set them locally in .dev.vars
+  // (gitignored) and in production with `wrangler secret put <NAME>`.
+  "vars": {
+    "SMTP_HOST": "smtp.gmail.com",
+    "SMTP_PORT": "587",
+    "SMTP_SECURE": "false",
+    "SMTP_FROM_NAME": "Grain Hub Australia Website",
+    "ADMIN_EMAIL": "info@grainhubaustralia.com.au"
   }
   // Postgres via `pg` needs a raw TCP connection, which Workers only allow
   // through Hyperdrive. Once you provision one (wrangler hyperdrive create),

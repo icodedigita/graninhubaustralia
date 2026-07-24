@@ -19,11 +19,38 @@ const PHONE_DISPLAY = siteConfig.contact.phoneDisplay;
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          product: data.get("product"),
+          message: data.get("message"),
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      form.reset();
+      setSent(true);
+      setTimeout(() => setSent(false), 4000);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -175,6 +202,7 @@ export default function Contact() {
                   </label>
                   <input
                     required
+                    name="name"
                     type="text"
                     placeholder="John Smith"
                     className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
@@ -186,6 +214,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="company"
                     placeholder="Your company"
                     className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
                   />
@@ -199,6 +228,7 @@ export default function Contact() {
                   </label>
                   <input
                     required
+                    name="email"
                     type="email"
                     placeholder="you@company.com"
                     className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
@@ -210,6 +240,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+61 ..."
                     className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
                   />
@@ -220,7 +251,10 @@ export default function Contact() {
                 <label className="text-xs font-semibold text-stone-600 uppercase tracking-wider">
                   Product of Interest
                 </label>
-                <select className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all bg-white">
+                <select
+                  name="product"
+                  className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all bg-white"
+                >
                   <option>Lentils</option>
                   <option>Kabuli Chickpeas</option>
                   <option>Desi Chickpeas</option>
@@ -241,6 +275,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   required
+                  name="message"
                   rows={5}
                   placeholder="Tell us about your requirements — quantity, packaging, destination..."
                   className="mt-2 w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all resize-none"
@@ -249,7 +284,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || submitting}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-leaf-700 hover:bg-leaf-800 text-white font-semibold shadow-lg shadow-leaf-700/20 hover:shadow-xl hover:shadow-leaf-700/30 transition-all group disabled:bg-leaf-600"
               >
                 {sent ? (
@@ -259,11 +294,17 @@ export default function Contact() {
                   </>
                 ) : (
                   <>
-                    Send Inquiry
+                    {submitting ? "Sending..." : "Send Inquiry"}
                     <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>
+
+              {error && (
+                <p className="text-sm text-center text-red-600">
+                  Something went wrong sending your message. Please try again or use WhatsApp below.
+                </p>
+              )}
 
               <p className="text-xs text-center text-stone-500">
                 Prefer a live conversation?{" "}
