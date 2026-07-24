@@ -1,4 +1,4 @@
-import nodemailer, { type Transport, type TransportOptions } from "nodemailer";
+import nodemailer from "nodemailer";
 import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
 type Transporter = nodemailer.Transporter<SMTPTransport.SentMessageInfo>;
@@ -14,17 +14,18 @@ function getTransporter(): Transporter {
 
   const host = process.env.SMTP_HOST;
   const user = process.env.SMTP_USER;
-  const password = process.env.SMTP_PASSWORD;
-  if (!host || !user || !password) {
+  const pass = process.env.SMTP_PASSWORD;
+  if (!host || !user || !pass) {
     throw new Error("SMTP_HOST, SMTP_USER and SMTP_PASSWORD are required");
   }
 
-  const transporter = nodemailer.createTransport({
+  const options: SMTPTransport.Options = {
     host,
     port: Number(process.env.SMTP_PORT ?? 587),
     secure: process.env.SMTP_SECURE === "true",
-    auth: { user, password },
-  } as TransportOptions | Transport<SMTPTransport.SentMessageInfo>);
+    auth: { user, pass },
+  };
+  const transporter = nodemailer.createTransport(options);
 
   if (process.env.NODE_ENV !== "production") {
     globalForMailer.__arenaNextJsMailer = transporter;
