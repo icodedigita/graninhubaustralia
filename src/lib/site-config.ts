@@ -20,7 +20,7 @@ export const siteConfig = {
   seo: {
     title:
       process.env.NEXT_PUBLIC_SEO_TITLE ??
-      `${siteName} | Premium Australian Pulses, Lentils & Grains`,
+      `${siteName} | Premium Pulses, Lentils & Grains`,
     description:
       process.env.NEXT_PUBLIC_SEO_DESCRIPTION ??
       `${siteName} — your trusted partner for high-quality, non-GMO pulses, lentils and grains. Farm-direct exports to the world.`,

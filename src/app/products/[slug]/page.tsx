@@ -29,22 +29,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return {};
+  const description = `${product.shortDesc} Non-GMO, farm-direct exports from Australia.`;
   return {
     title: product.name,
-    description: product.shortDesc,
+    description,
     alternates: {
       canonical: `/products/${product.slug}`,
     },
     openGraph: {
       title: `${product.name} | ${siteConfig.name}`,
-      description: product.shortDesc,
+      description,
       type: "website",
       images: [{ url: product.image, alt: product.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${product.name} | ${siteConfig.name}`,
-      description: product.shortDesc,
+      description,
       images: [product.image],
     },
   };
@@ -61,8 +62,41 @@ export default async function ProductPage({
 
   const related = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 3);
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDesc,
+    image: `${siteConfig.url}${product.image}`,
+    brand: { "@type": "Brand", name: siteConfig.name },
+    category: product.tags.join(", "),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${siteConfig.url}/#products` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `${siteConfig.url}/products/${product.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
       <main className="min-h-screen pt-20 md:pt-24 pb-20">
         <FloatingWhatsApp />
