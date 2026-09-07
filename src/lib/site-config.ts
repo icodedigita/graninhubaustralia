@@ -38,9 +38,6 @@ export const siteConfig = {
       .map((k) => k.trim())
       .filter(Boolean),
     googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
-    // Defaults to blocking all crawlers so unfinished/staging deployments never
-    // get indexed. Set NEXT_PUBLIC_ALLOW_INDEXING=true once ready to go live.
-    allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
   },
 
   contact: {

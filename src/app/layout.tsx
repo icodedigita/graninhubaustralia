@@ -31,20 +31,15 @@ export const metadata: Metadata = {
   },
   keywords: seo.keywords,
   authors: [{ name: siteConfig.name }],
-  robots: seo.allowIndexing
-    ? {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-        },
-      }
-    : {
-        index: false,
-        follow: false,
-      },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
   openGraph: {
     title: seo.ogTitle,
     description: seo.ogDescription,

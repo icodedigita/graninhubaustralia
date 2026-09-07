@@ -168,6 +168,10 @@ export default function Contact() {
                     city: "Manchester, UK",
                     phone: "+44 7852 926601",
                   },
+                  {
+                    city: "Karachi, Pakistan",
+                    phone: "+92 300 9124313",
+                  },
                 ].map((o) => (
                   <li key={o.city} className="flex items-start gap-3">
                     <Phone className="w-4 h-4 text-leaf-700 mt-0.5 flex-shrink-0" />

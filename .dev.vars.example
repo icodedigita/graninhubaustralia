@@ -13,8 +13,6 @@ NEXT_PUBLIC_TWITTER_HANDLE=
 NEXT_PUBLIC_SEO_KEYWORDS="Australian pulses,lentils export,chickpeas,mung beans,yellow split peas,grain hub australia,grain export Australia"
 # Search engine verification (optional)
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
-# Set to "true" only when ready to go live — otherwise robots.txt blocks all crawlers
-NEXT_PUBLIC_ALLOW_INDEXING=false
 
 # Contact
 NEXT_PUBLIC_CONTACT_EMAIL=info@grainhubaustralia.com.au
